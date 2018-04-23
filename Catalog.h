@@ -1,4 +1,5 @@
-	#ifndef	Catalog_h
+
+#ifndef	Catalog_h
 #define	Catalog_h
 
 //****************************************************************************************
@@ -9,6 +10,8 @@
 #include	<iostream>
 #include	<map>
 #include	<string>
+#include <sstream>
+#include <stdexcept>
 
 using namespace std;
 
