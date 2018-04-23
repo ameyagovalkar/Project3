@@ -1,3 +1,5 @@
+
+
 //****************************************************************************************
 //
 //	INCLUDE FILES
@@ -14,6 +16,7 @@ using namespace std;
 bool	Catalog::AddCategory(uint64_t categoryNumber, const string& name)
 {
 	// to be completed
+myCategory[categoryNumber].cName = name;
 	return true;
 }
 
