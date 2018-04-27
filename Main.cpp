@@ -63,6 +63,7 @@ bool		Verify(stringstream& actualStream, stringstream& expectedStream);
 //****************************************************************************************
 int main (int argc, char * const argv[])
 {
+	
 	//************************************************************************************
 	//	LOCAL DATA
 	uint64_t	score;
@@ -87,7 +88,8 @@ int main (int argc, char * const argv[])
 	
 	cout << endl << "** Finished **" << endl;
 
-//	system("pause");
+	
+	system("pause");
 	return(0);
 }
 
