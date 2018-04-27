@@ -19,6 +19,7 @@ using namespace std;
 
 //****************************************************************************************
 //	FUNCTION PROTOTYPES
+
 bool	GetLine(istream& stream, string& text);
 
 bool	GetLine(istream& stream, string& text, const string& delimiter);
