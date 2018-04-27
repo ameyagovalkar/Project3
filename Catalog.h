@@ -30,7 +30,7 @@ using namespace std;
 
 struct Category
 {
-	bool operator ==(Category rhs)const
+	bool Category::operator ==(Category rhs)const
 	{
 		if (this->name==rhs.name)
 		{
