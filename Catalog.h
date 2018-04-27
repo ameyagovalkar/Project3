@@ -28,6 +28,35 @@ using namespace std;
 //****************************************************************************************
 
 
+struct Category
+{
+	bool Category::operator ==(Category rhs)const
+	{
+		if (this->name==rhs.name)
+		{
+			if (this->num==rhs.num)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+			
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+
+	string name;
+	uint64_t num;
+	map<uint64_t, string> product;
+};
+
+
 class	Catalog
 {
 	public:
@@ -63,15 +92,16 @@ class	Catalog
 	private:
 	
 		// map declaration goes here
+		map<uint64_t, struct Category> category;
+
 		Catalog *root;
 		Catalog *left;
 		Catalog *right;
 	        string cName;
-		//int cNum;
-		string pName;
-		int pNum;
 
-		std::map<int, Catalog> myCategory;
+			int cNum;
+			int pNum;
+
 };
 
 //****************************************************************************************
