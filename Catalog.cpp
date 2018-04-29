@@ -187,12 +187,13 @@ bool	Catalog::ShowProduct(ostream& stream, uint64_t categoryNumber, uint64_t pro
 		}
 		return false;
 	}
+	return false;
 }
 
 bool	Catalog::ShowCategory(ostream& stream, uint64_t categoryNumber)
 {
 	// to be completed
-	
+	/*
 	auto pNameEnd = category[categoryNumber].productName.begin();
 
 	
@@ -212,21 +213,32 @@ bool	Catalog::ShowCategory(ostream& stream, uint64_t categoryNumber)
 	else
 	{
 		return false;
-	}
+	}*/
 	
+	if (category.empty())
+		return false;
 
-	//
-	return true;
+	map<uint64_t, Category>::iterator k;		// iterator for category map
+	map<uint64_t, string>::iterator b; // iterator for whole map product
+	map<uint64_t, string>::iterator x;		// iterator for the map inside of product map
+
+	for (k = category.begin(); k != category.end(); k++)
+		if (k->first == categoryNumber) {
+			stream << "Category\t" << k->first << "\t" << k->second.name << endl;
+			
+			for (x = category[categoryNumber].productName.begin(); x != category[categoryNumber].productName.end(); x++)
+				stream << x->first << "\t" << x->second << endl;
+			return true;
+		}
+	
+	return false;
+
+	
 }
 
 bool	Catalog::ShowAll(ostream& stream)
 {
 	// to be completed
-	/*
-	map<uint64_t, Category>::iterator cEnd;
-	map<uint64_t, string>::iterator pNameEnd;
-	map<uint64_t, uint64_t>::iterator pNumEnd;
-	*/
 
 	if (category.empty())
 		return false;
@@ -250,7 +262,5 @@ bool	Catalog::ShowAll(ostream& stream)
 	//	return false;
 	return true;
 	
-
-	return true;
 }
 
