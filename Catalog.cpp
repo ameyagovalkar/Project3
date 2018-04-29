@@ -183,9 +183,9 @@ bool	Catalog::ShowProduct(ostream& stream, uint64_t categoryNumber, uint64_t pro
 
 				}
 
-				return false;
 			}
 		}
+		return false;
 	}
 }
 
