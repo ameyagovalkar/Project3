@@ -30,7 +30,7 @@ using namespace std;
 
 struct Category
 {
-	bool operator ==(Category rhs)const
+	bool operator ==(Category &rhs)const
 	{
 		if (this->name==rhs.name)
 		{
@@ -53,7 +53,10 @@ struct Category
 
 	string name;
 	uint64_t num;
-	map<uint64_t, string> product;
+	
+	map<uint64_t, string> productName;
+	map<uint64_t, uint64_t> productNum;
+
 };
 
 
@@ -92,7 +95,8 @@ class	Catalog
 	private:
 	
 		// map declaration goes here
-		map<uint64_t, struct Category> category;
+		map<uint64_t, Category> category;
+		
 
 		Catalog *root;
 		Catalog *left;
