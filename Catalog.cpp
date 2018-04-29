@@ -215,6 +215,7 @@ bool	Catalog::ShowCategory(ostream& stream, uint64_t categoryNumber)
 	}
 	
 
+	//
 	return true;
 }
 
@@ -239,7 +240,9 @@ bool	Catalog::ShowAll(ostream& stream)
 	{
 		stream << "Category\t" << k->first << "\t" << k->second.name << endl;
 		for (b = k->second.productName.begin(); b != k->second.productName.end(); b++)
+		{
 			stream << b->first << "\t" << b->second << endl;
+		}
 
 	}
 	// to be completed
