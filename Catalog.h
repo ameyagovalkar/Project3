@@ -98,11 +98,6 @@ class	Catalog
 		map<uint64_t, Category> category;
 		
 
-		Catalog *root;
-		Catalog *left;
-		Catalog *right;
-	        string cName;
-
 			int cNum;
 			int pNum;
 
