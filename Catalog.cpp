@@ -19,7 +19,7 @@ bool	Catalog::AddCategory(uint64_t categoryNumber, const string& name)
 	// to be completed
 
 
-	if (category[categoryNumber] == category[categoryNumber])
+	if (/*category[categoryNumber].name == name &&*/ category[categoryNumber].num == categoryNumber)
 	{
 		return false;
 	}
@@ -44,13 +44,14 @@ bool	Catalog::AddProduct(uint64_t categoryNumber, uint64_t productNumber, const 
 {
 	// to be completed
 
-	if (category[categoryNumber].product[productNumber]== category[categoryNumber].product[productNumber])
+	if (category[categoryNumber].productNum[productNumber] = productNumber)
 	{
 		return false;
 	}
 	else
 	{
-		category[categoryNumber].product[productNumber] = name;
+		category[categoryNumber].productName[productNumber] = name;
+		category[categoryNumber].productNum[productNumber] = productNumber;
 		pNum++;
 		return true;
 		
@@ -68,7 +69,7 @@ uint64_t	Catalog::GetCategoryCount()
 int64_t	Catalog::GetProductCount(uint64_t categoryNumber)
 {
 	// to be completed
-	return category[categoryNumber].product.size();
+	return category[categoryNumber].productNum.size();
 }
 
 bool	Catalog::Load(const string& fileName)
@@ -130,22 +131,55 @@ bool	Catalog::ShowProduct(ostream& stream, uint64_t categoryNumber, uint64_t pro
 {
 	// to be completed
 
+	auto search = category[categoryNumber].productName.find(productNumber);
 
 
-	return true;
+	if (search != category[categoryNumber].productName.end())
+	{
+		string line = productNumber + "\t" + search->second;
+		stream << line << endl;
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+	
+
 }
 
 bool	Catalog::ShowCategory(ostream& stream, uint64_t categoryNumber)
 {
 	// to be completed
 
+	auto pNameEnd = category[categoryNumber].productName.begin();
 
-	return true;
+	
+	if (pNameEnd != category[categoryNumber].productName.end())
+	{
+		cout << "Category\t";
+		while (pNameEnd != category[categoryNumber].productName.end())
+		{
+			string line = pNameEnd->first + "\t" + pNameEnd->second;
+			stream << line << endl;
+		}
+		return true;
+
+	}
+	else
+	{
+		return false;
+	}
+		
 }
 
 bool	Catalog::ShowAll(ostream& stream)
 {
 	// to be completed
+	map<uint64_t, Category>::iterator cEnd;
+	map<uint64_t, string>::iterator pNameEnd;
+	map<uint64_t, uint64_t>::iterator pNumEnd;
+	
 
 
 	return true;
