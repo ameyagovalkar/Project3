@@ -37,7 +37,7 @@ bool	Catalog::AddCategory(uint64_t categoryNumber, const string& name)
 
 	}
 
-	
+
 }
 
 bool	Catalog::AddProduct(uint64_t categoryNumber, uint64_t productNumber, const string& name)
@@ -54,27 +54,27 @@ bool	Catalog::AddProduct(uint64_t categoryNumber, uint64_t productNumber, const 
 		category[categoryNumber].productNum[productNumber] = productNumber;
 		pNum++;
 		return true;
-		
+
 	}
 	//*/
 	/*
 	bool category_exist = false;
-	
+
 	for (map<uint64_t, Category>::iterator p = category.begin(); p != category.end(); p++) {
-		if (p->first == categoryNumber) {
-			category_exist = true;
-			for (map<uint64_t, string >::iterator t = p->second.productName.begin(); t != p->second.productName.end(); t++)
-			{
-				if (t->first == productNumber) {
-					
-					return false;
-				}
-			}
-			break;
-		}
+	if (p->first == categoryNumber) {
+	category_exist = true;
+	for (map<uint64_t, string >::iterator t = p->second.productName.begin(); t != p->second.productName.end(); t++)
+	{
+	if (t->first == productNumber) {
+
+	return false;
+	}
+	}
+	break;
+	}
 	}
 	if (!category_exist)
-		return false;
+	return false;
 
 	category[categoryNumber].productName[productNumber] = name;
 	// to be completed
@@ -154,21 +154,21 @@ bool	Catalog::Load(const string& fileName)
 bool	Catalog::ShowProduct(ostream& stream, uint64_t categoryNumber, uint64_t productNumber)
 {
 	// to be completed
-	/*
+	
 	auto search = category[categoryNumber].productName.find(productNumber);
 
 	if (search != category[categoryNumber].productName.end())
 	{
-		string line = productNumber + "\t" + search->second;
-		stream << line << endl;
-		return true;
+	//string line = search->first + "\t" + search->second;
+	stream << search->first << "\t" << search->second << endl;
+	return true;
 	}
 	else
 	{
-		return false;
-	}*/
+	return false;
+	}
 
-
+	/*
 	for (map<uint64_t, Category>::iterator p = category.begin(); p != category.end(); p++)
 	{
 		if (p->first == categoryNumber)
@@ -187,7 +187,7 @@ bool	Catalog::ShowProduct(ostream& stream, uint64_t categoryNumber, uint64_t pro
 		}
 		return false;
 	}
-	return false;
+	//return false;*/
 }
 
 bool	Catalog::ShowCategory(ostream& stream, uint64_t categoryNumber)
@@ -196,25 +196,25 @@ bool	Catalog::ShowCategory(ostream& stream, uint64_t categoryNumber)
 	/*
 	auto pNameEnd = category[categoryNumber].productName.begin();
 
-	
+
 	if (pNameEnd != category[categoryNumber].productName.end())
 	{
-		cout << "Category\t";
-		while (pNameEnd != category[categoryNumber].productName.end())
-		{
-			string line = pNameEnd->first + "\t" + pNameEnd->second;
-			stream << line << endl;
-			pNameEnd++;
-		}
+	cout << "Category\t";
+	while (pNameEnd != category[categoryNumber].productName.end())
+	{
+	string line = pNameEnd->first + "\t" + pNameEnd->second;
+	stream << line << endl;
+	pNameEnd++;
+	}
 
-		return true;
+	return true;
 
 	}
 	else
 	{
-		return false;
+	return false;
 	}*/
-	
+
 	if (category.empty())
 		return false;
 
@@ -225,15 +225,15 @@ bool	Catalog::ShowCategory(ostream& stream, uint64_t categoryNumber)
 	for (k = category.begin(); k != category.end(); k++)
 		if (k->first == categoryNumber) {
 			stream << "Category\t" << k->first << "\t" << k->second.name << endl;
-			
+
 			for (x = category[categoryNumber].productName.begin(); x != category[categoryNumber].productName.end(); x++)
 				stream << x->first << "\t" << x->second << endl;
 			return true;
 		}
-	
+
 	return false;
 
-	
+
 }
 
 bool	Catalog::ShowAll(ostream& stream)
@@ -261,6 +261,6 @@ bool	Catalog::ShowAll(ostream& stream)
 	//if(category.empty() && product.empty())
 	//	return false;
 	return true;
-	
+
 }
 
